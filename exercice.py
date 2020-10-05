@@ -3,6 +3,7 @@
 
 from random import randint
 from structs import Queue, Stack
+from collections import deque #utiliser pour les piles et utiliser pop right et left 
 
 
 def reverse_data(data: list = None):
@@ -11,16 +12,24 @@ def reverse_data(data: list = None):
     # et les retourner en ordre inverse, sans utiliser de liste.
 
     if data is None:
-        pass  # Demander les valeurs ici
+        data = [input("entrez une donnee:")for _ in range(10)]
+    
+    s= Stack()
+    s.put_many(data) #on met la liste dans un stack = pille et on fait des pop (get)dessus pour le mettre en ordre de last in first out dans une liste
+ # ensuite une fois que on as accès à tout les valeurs de notre pille on peut agir dessus 
+    for d in data:
+        s.put(d)
 
-    reversed_data = None  # Stocker le résultat ici
-
-    return reversed_data
+    return [s.get() for _ in range(len(s))]
 
 
 def delete_nth_from_stack(data: Stack, position: int) -> Stack:
     # TODO: Supprimer le énième (position) élément de data et retourner la nouvelle structure de données.
     return Stack()
+    s= Stack()
+
+    for i in range (len(data)-1):
+        s.put(data.get())
 
 
 def delete_nth_from_queue(data: Queue, position: int) -> Queue:
